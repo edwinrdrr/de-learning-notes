@@ -13,7 +13,7 @@ One folder per topic under `topics/`. Each folder has up to **four files**:
 | `concepts.md` | **From-basic on-ramp.** Opens with "what is this and why does it exist," then mental model, key terms, when not to use it. Assumes only that you can use a terminal. |
 | `cheatsheet.md` | Terse reference. Commands, syntax, config snippets — for when you know the topic but forgot the exact flag. |
 | `applied-in-spotify-pipeline.md` | The bridge: how this topic shows up in spotify-pipeline, with file paths to look at. Keeps the notes anchored to a real codebase. |
-| `tutorial.md` *(when present)* | Full step-by-step hands-on walkthrough. Copy-paste-friendly, common errors inlined, no "now go read the official docs." Takes ~2-3 hours to follow. |
+| `tutorials/*.md` *(when present)* | A multi-file hands-on course, one concept per file (e.g., one file just for `profiles.yml`). Copy-paste-friendly, common errors inlined, no "now go read the official docs." Takes ~3-4 hours to follow end-to-end. |
 
 ## Topics
 
@@ -21,7 +21,7 @@ Numbered in a recommended study order (later topics build on earlier ones).
 
 | # | Topic | Status | Files |
 |---|-------|--------|-------|
-| 01 | [dbt](topics/01-dbt/) — data transformation in SQL with tests | ✅ filled | concepts · cheatsheet · applied · **tutorial** |
+| 01 | [dbt](topics/01-dbt/) — data transformation in SQL with tests | ✅ filled | concepts · cheatsheet · applied · **[27-file tutorial course](topics/01-dbt/tutorials/)** |
 | 02 | [terraform](topics/02-terraform/) — infrastructure as code | 🟡 mostly | concepts · cheatsheet · applied |
 | 03 | [github-actions](topics/03-github-actions/) — CI/CD on GitHub | ⬜ stub only | placeholder |
 | 04 | [iam](topics/04-iam/) — identities, roles, who can do what on GCP | ⬜ stub only | placeholder |
@@ -35,7 +35,8 @@ Other topics to add later (the spotify-pipeline reproducer also needs working kn
 
 ## How to use this repo
 
-- **Studying from scratch?** Read `concepts.md` of each topic in order. Don't skip to applied yet.
+- **Studying a topic from scratch?** Open the topic folder, then `tutorials/` if it exists, and read 00 onward. Each tutorial file is ~5-15 min.
+- **Want the mental model without the hands-on slog?** Read `concepts.md`.
 - **Already know the topic, looking it up?** `cheatsheet.md` is your friend.
 - **Reproducing spotify-pipeline?** Read `applied-in-spotify-pipeline.md` after the concepts to anchor what you just learned to a real file in a real repo.
 

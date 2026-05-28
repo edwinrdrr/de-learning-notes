@@ -29,14 +29,14 @@ Total time per file: **5–15 minutes**. So you can do a few, take a break, come
 
 | # | File | What you learn | Time |
 |---|------|---------------|------|
-| 09 | `09-the-example-models.md` | Read the dbt-scaffolded examples. Understand them. Then delete them. | 10 min |
-| 10 | `10-dbt-run.md` | What `dbt run` actually does, step by step. | 10 min |
-| 11 | `11-seeds.md` | Seeds — loading CSVs as raw tables. | 10 min |
-| 12 | `12-jinja-and-ref.md` | Why dbt uses `{{ ... }}`. What `ref()` and `source()` are. | 10 min |
-| 13 | `13-first-staging-model.md` | Build your first staging model. | 15 min |
-| 14 | `14-layered-architecture.md` | sources → staging → marts. Why three layers. | 10 min |
-| 15 | `15-first-mart-model.md` | Build a mart that joins two staging models. | 15 min |
-| 16 | `16-the-dag.md` | The dependency graph. How dbt figures out build order. | 10 min |
+| 09 | [`09-the-example-models.md`](09-the-example-models.md) | Read the dbt-scaffolded examples. Understand them. Then delete them. | 10 min |
+| 10 | [`10-dbt-run.md`](10-dbt-run.md) | What `dbt run` actually does, step by step. | 10 min |
+| 11 | [`11-seeds.md`](11-seeds.md) | Seeds — loading CSVs as raw tables. | 10 min |
+| 12 | [`12-jinja-and-ref.md`](12-jinja-and-ref.md) | Why dbt uses `{{ ... }}`. What `ref()` and `source()` are. | 10 min |
+| 13 | [`13-first-staging-model.md`](13-first-staging-model.md) | Build your first staging model. | 15 min |
+| 14 | [`14-layered-architecture.md`](14-layered-architecture.md) | sources → staging → marts. Why three layers. | 10 min |
+| 15 | [`15-first-mart-model.md`](15-first-mart-model.md) | Build a mart that joins two staging models. | 15 min |
+| 16 | [`16-the-dag.md`](16-the-dag.md) | The dependency graph. How dbt figures out build order. | 10 min |
 
 ✅ **Checkpoint**: you have a real data pipeline (seeds → staging → marts) running in BigQuery.
 
@@ -44,11 +44,11 @@ Total time per file: **5–15 minutes**. So you can do a few, take a break, come
 
 | # | File | What you learn | Time |
 |---|------|---------------|------|
-| 17 | `17-why-tests.md` | What data tests are. Why dbt has them. | 5 min |
-| 18 | `18-column-tests.md` | `not_null`, `unique`, `accepted_values`, `relationships`. | 15 min |
-| 19 | `19-running-tests.md` | `dbt test` — when and how to use it. | 5 min |
-| 20 | `20-breaking-tests.md` | Break a test on purpose. See what failure looks like. | 10 min |
-| 21 | `21-dbt-build.md` | `dbt build` — the unified command. The one you'll actually use. | 5 min |
+| 17 | [`17-why-tests.md`](17-why-tests.md) | What data tests are. Why dbt has them. | 5 min |
+| 18 | [`18-column-tests.md`](18-column-tests.md) | `not_null`, `unique`, `accepted_values`, `relationships`. | 15 min |
+| 19 | [`19-running-tests.md`](19-running-tests.md) | `dbt test` — when and how to use it. | 5 min |
+| 20 | [`20-breaking-tests.md`](20-breaking-tests.md) | Break a test on purpose. See what failure looks like. | 10 min |
+| 21 | [`21-dbt-build.md`](21-dbt-build.md) | `dbt build` — the unified command. The one you'll actually use. | 5 min |
 
 ✅ **Checkpoint**: you can write data tests and trust them.
 
@@ -56,11 +56,11 @@ Total time per file: **5–15 minutes**. So you can do a few, take a break, come
 
 | # | File | What you learn | Time |
 |---|------|---------------|------|
-| 22 | `22-materializations.md` | view vs table vs incremental vs ephemeral. When to use each. | 15 min |
-| 23 | `23-configuring-mat.md` | How to set materialization per-model and per-folder. | 10 min |
-| 24 | `24-dbt-docs.md` | Generate documentation and serve it as a website. | 10 min |
-| 25 | `25-common-errors.md` | The errors you WILL hit, and what they actually mean. | reference |
-| 26 | `26-whats-next.md` | Where to go from here. Including the spotify-pipeline anchor. | 5 min |
+| 22 | [`22-materializations.md`](22-materializations.md) | view vs table vs incremental vs ephemeral. When to use each. | 15 min |
+| 23 | [`23-configuring-mat.md`](23-configuring-mat.md) | How to set materialization per-model and per-folder. | 10 min |
+| 24 | [`24-dbt-docs.md`](24-dbt-docs.md) | Generate documentation and serve it as a website. | 10 min |
+| 25 | [`25-common-errors.md`](25-common-errors.md) | The errors you WILL hit, and what they actually mean. | reference |
+| 26 | [`26-whats-next.md`](26-whats-next.md) | Where to go from here. Including the spotify-pipeline anchor. | 5 min |
 
 ✅ **Final checkpoint**: you can read spotify-pipeline's `dbt/` folder and follow it.
 
@@ -71,6 +71,4 @@ Each file has a "← Previous · Next →" line at the top and bottom. Just keep
 
 ## Status
 
-🟡 **In progress.** Files 00, 06, 07 are written as samples; others will follow.
-
-When all files are written, this index will say ✅ filled.
+✅ **Complete.** All 27 files written. Total ~28k words; ~3-4 hours to follow.
