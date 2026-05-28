@@ -22,6 +22,21 @@ dbt run            # compile + run, NO tests
 dbt test           # only run tests on already-built models
 ```
 
+## Other commands worth knowing
+
+```bash
+dbt compile                       # render Jinja, no warehouse call. Writes target/compiled/.
+dbt parse                         # parse project (validate structure), no compile.
+dbt seed                          # only load CSVs from seeds/.
+dbt snapshot                      # run snapshots (SCD-2 capture).
+dbt source freshness              # check source freshness vs declared SLA.
+dbt clean                         # delete target/ and dbt_packages/ (build artifacts).
+dbt list --resource-type model    # list all models dbt knows about.
+dbt run-operation MACRO_NAME      # invoke a macro directly (e.g. ad-hoc Jinja-templated SQL).
+dbt docs generate                 # build docs data (catalog.json).
+dbt docs serve                    # local docs website on :8080.
+```
+
 ## Selectors (`--select`)
 
 ```bash

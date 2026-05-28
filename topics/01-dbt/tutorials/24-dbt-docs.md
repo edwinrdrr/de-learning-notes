@@ -1,6 +1,6 @@
 # 24 — Documentation and the lineage graph
 
-← Previous&nbsp; [`23-configuring-mat.md`](23-configuring-mat.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
+← Previous&nbsp; [`23d-compiled-sql.md`](23d-compiled-sql.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
 
 ---
 
@@ -113,7 +113,15 @@ Navigate to `stg_orders`. You'll see:
   - `customer_id` — "Foreign key into stg_customers." Tests: not_null, relationships.
   - etc.
 
-All the YAML you wrote in file 18 is now navigable as a website.
+**This is exactly the YAML you wrote in file 18.** Every `description:` field
+you typed shows up here. The `data_tests:` blocks become the tests listed under
+each column. Your YAML wasn't just configuration — it was the source of truth
+for documentation, all along.
+
+The lesson: the more effort you put into writing good descriptions in YAML, the
+better the docs. A model with a one-line description and zero column descriptions
+shows up as a near-empty page. A well-documented model becomes a navigable
+reference.
 
 ## Step 5: Stop the server
 
@@ -204,4 +212,4 @@ Both are read by `dbt docs serve` to render the UI.
 You've used all the basic dbt features. Two more files: a reference for errors,
 and what to do next.
 
-← Previous&nbsp; [`23-configuring-mat.md`](23-configuring-mat.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
+← Previous&nbsp; [`23d-compiled-sql.md`](23d-compiled-sql.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)

@@ -1,6 +1,6 @@
 # 14 — The layered architecture (sources → staging → marts)
 
-← Previous&nbsp; [`13-first-staging-model.md`](13-first-staging-model.md) &nbsp;·&nbsp; Next →&nbsp; [`15-first-mart-model.md`](15-first-mart-model.md)
+← Previous&nbsp; [`13b-sources.md`](13b-sources.md) &nbsp;·&nbsp; Next →&nbsp; [`15-first-mart-model.md`](15-first-mart-model.md)
 
 ---
 
@@ -221,4 +221,4 @@ dimension answers "to whom / about what."
 
 Mental model in hand. Let's build the mart.
 
-← Previous&nbsp; [`13-first-staging-model.md`](13-first-staging-model.md) &nbsp;·&nbsp; Next →&nbsp; [`15-first-mart-model.md`](15-first-mart-model.md)
+← Previous&nbsp; [`13b-sources.md`](13b-sources.md) &nbsp;·&nbsp; Next →&nbsp; [`15-first-mart-model.md`](15-first-mart-model.md)

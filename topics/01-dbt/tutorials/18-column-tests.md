@@ -1,6 +1,6 @@
 # 18 — Built-in column tests
 
-← Previous&nbsp; [`17-why-tests.md`](17-why-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`19-running-tests.md`](19-running-tests.md)
+← Previous&nbsp; [`17-why-tests.md`](17-why-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`18b-custom-tests.md`](18b-custom-tests.md)
 
 ---
 
@@ -253,4 +253,4 @@ doesn't exist, etc. dbt distinguishes these in output: `FAIL` vs `ERROR`.
 
 We've declared tests. Let's actually run them.
 
-← Previous&nbsp; [`17-why-tests.md`](17-why-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`19-running-tests.md`](19-running-tests.md)
+← Previous&nbsp; [`17-why-tests.md`](17-why-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`18b-custom-tests.md`](18b-custom-tests.md)

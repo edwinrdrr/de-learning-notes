@@ -1,6 +1,6 @@
 # 19 — Running tests with `dbt test`
 
-← Previous&nbsp; [`18-column-tests.md`](18-column-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`20-breaking-tests.md`](20-breaking-tests.md)
+← Previous&nbsp; [`18b-custom-tests.md`](18b-custom-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`20-breaking-tests.md`](20-breaking-tests.md)
 
 ---
 
@@ -160,4 +160,4 @@ output. Useful for "soft" assertions you want to monitor but not block on.
 Tests pass. Time to deliberately break the data and see them fail. That's how you
 trust them.
 
-← Previous&nbsp; [`18-column-tests.md`](18-column-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`20-breaking-tests.md`](20-breaking-tests.md)
+← Previous&nbsp; [`18b-custom-tests.md`](18b-custom-tests.md) &nbsp;·&nbsp; Next →&nbsp; [`20-breaking-tests.md`](20-breaking-tests.md)

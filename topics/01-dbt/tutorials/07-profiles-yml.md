@@ -227,7 +227,7 @@ Then `export GCP_PROJECT_DEV=silver-spaceman-12345` in your shell. dbt substitut
 at runtime. This is what spotify-pipeline does — see
 `applied-in-spotify-pipeline.md`.
 
-## Try this
+## Try this — break the default target
 
 Edit your `profiles.yml` and change `target: dev` to `target: nonexistent`. Save.
 Run `dbt debug`. You'll see:
@@ -238,6 +238,53 @@ The profile 'my_first_project' does not have a target named 'nonexistent'
 
 dbt tried to use the default target, looked for an output named `nonexistent`,
 didn't find one, and complained. **Revert** before continuing.
+
+## Try this — replace `project:` with `env_var()`
+
+The hardcoded `project: silver-spaceman-12345` works, but real projects use
+environment variables so the file isn't tied to one specific GCP project. Let's
+see this work.
+
+In `~/.dbt/profiles.yml`, change:
+```yaml
+project: silver-spaceman-12345
+```
+to:
+```yaml
+project: "{{ env_var('GCP_PROJECT_DEV') }}"
+```
+
+Save. Now run:
+```bash
+dbt debug
+```
+
+It should FAIL with something like `Env var required but not provided:
+'GCP_PROJECT_DEV'`. That's good — dbt is looking for the env var and not finding
+it.
+
+Set it and retry:
+```bash
+export GCP_PROJECT_DEV=silver-spaceman-12345    # use your actual project id
+dbt debug
+```
+
+Now it should pass.
+
+**This is the production pattern.** `profiles.yml` is committed to a project's
+repo (no secrets, no machine-specific values inside); the actual project ID
+comes from an env var set in your shell locally, or in a CI runner's
+environment, or from a secret manager. Different env vars per environment; the
+YAML doesn't change between machines or developers.
+
+For the rest of the tutorial, you can either:
+- **Keep the env-var version** and `export GCP_PROJECT_DEV=...` at the start of
+  every session (annoying but realistic).
+- **Revert to the hardcoded ID** (simpler for learning).
+
+Both work; the muscle memory is what matters. You've seen the pattern now —
+when you read spotify-pipeline's `profiles.yml`, `{{ env_var('GCP_PROJECT_DEV')
+}}` won't surprise you.
 
 ---
 

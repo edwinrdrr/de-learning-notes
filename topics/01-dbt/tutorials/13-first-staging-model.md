@@ -1,6 +1,6 @@
 # 13 — Your first staging model
 
-← Previous&nbsp; [`12-jinja-and-ref.md`](12-jinja-and-ref.md) &nbsp;·&nbsp; Next →&nbsp; [`14-layered-architecture.md`](14-layered-architecture.md)
+← Previous&nbsp; [`12-jinja-and-ref.md`](12-jinja-and-ref.md) &nbsp;·&nbsp; Next →&nbsp; [`13b-sources.md`](13b-sources.md)
 
 ---
 
@@ -273,4 +273,4 @@ glance.
 We have two staging models. Before we join them into a mart, let's step back and
 understand the layered-architecture pattern this is part of.
 
-← Previous&nbsp; [`12-jinja-and-ref.md`](12-jinja-and-ref.md) &nbsp;·&nbsp; Next →&nbsp; [`14-layered-architecture.md`](14-layered-architecture.md)
+← Previous&nbsp; [`12-jinja-and-ref.md`](12-jinja-and-ref.md) &nbsp;·&nbsp; Next →&nbsp; [`13b-sources.md`](13b-sources.md)
