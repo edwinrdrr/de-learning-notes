@@ -1,6 +1,6 @@
 # 22 — Materializations
 
-← Previous&nbsp; [`21-dbt-build.md`](21-dbt-build.md) &nbsp;·&nbsp; Next →&nbsp; [`23-configuring-mat.md`](23-configuring-mat.md)
+← Previous&nbsp; [`21-dbt-build.md`](21-dbt-build.md) &nbsp;·&nbsp; Next →&nbsp; [`22b-incremental-built.md`](22b-incremental-built.md)
 
 ---
 
@@ -242,9 +242,81 @@ subquery, ephemeral lets you DRY it up.
 No. Tests run after the model exists in BigQuery (or is inlined, for ephemeral).
 The materialization choice doesn't change which tests apply or whether they pass.
 
+## BigQuery-specific configs: partitioning and clustering
+
+Materialization choice (view/table/incremental/ephemeral) is the warehouse-agnostic
+decision. But on BigQuery there are two more knobs that determine how a TABLE or
+INCREMENTAL model **physically stores** rows — and they matter enormously for
+cost and performance:
+
+### `partition_by`
+
+```sql
+{{ config(
+    materialized='table',
+    partition_by={
+        'field': 'order_date',
+        'data_type': 'date',
+        'granularity': 'day'
+    }
+) }}
+```
+
+What BigQuery does: physically splits the table into one partition per day. When
+a query has `where order_date = '2026-01-01'`, BQ only scans that one partition.
+
+**Cost impact:** BigQuery's pricing is per byte scanned. A 100 GB table queried
+with `where order_date = X` might scan 100 MB instead of 100 GB if partitioned.
+That's 1000× cheaper.
+
+Common partition columns: `event_date`, `order_date`, `created_at` (use
+`granularity: 'day'` for date, `'hour'` for timestamp, `'month'` for older
+columns where you don't query a single day).
+
+### `cluster_by`
+
+```sql
+{{ config(
+    materialized='table',
+    partition_by={'field': 'order_date', 'data_type': 'date'},
+    cluster_by=['customer_id', 'status']
+) }}
+```
+
+Within each partition, BQ sorts and groups rows by the cluster columns. When you
+filter on a clustered column, BQ can skip blocks within the partition.
+
+**Use clustering on:** columns with high cardinality that you filter on often.
+`customer_id` is the canonical example.
+
+### Combined: the standard mart pattern
+
+```sql
+{{ config(
+    materialized='incremental',
+    unique_key='order_id',
+    on_schema_change='append_new_columns',
+    partition_by={
+        'field': 'order_date',
+        'data_type': 'date',
+        'granularity': 'day'
+    },
+    cluster_by=['customer_id']
+) }}
+```
+
+Big fact table, partitioned by date for cheap date-range queries, clustered by
+customer_id for cheap per-customer queries, incremental so daily builds only
+process yesterday's data. This is the standard production pattern for
+high-volume BQ fact tables.
+
+For our 10-row tutorial it's overkill. For a real project with millions of rows,
+forgetting partition_by means the BQ bill is 100× too high.
+
 ---
 
-You understand the four materializations. Now let's see how to configure them
-project-wide vs. per-model.
+You understand the four materializations and BigQuery's physical-layout knobs.
+Now let's actually build an incremental for real — that's where most of the
+gotchas live.
 
-← Previous&nbsp; [`21-dbt-build.md`](21-dbt-build.md) &nbsp;·&nbsp; Next →&nbsp; [`23-configuring-mat.md`](23-configuring-mat.md)
+← Previous&nbsp; [`21-dbt-build.md`](21-dbt-build.md) &nbsp;·&nbsp; Next →&nbsp; [`22b-incremental-built.md`](22b-incremental-built.md)

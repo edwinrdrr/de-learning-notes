@@ -1,6 +1,6 @@
 # 24 — Documentation and the lineage graph
 
-← Previous&nbsp; [`23d-compiled-sql.md`](23d-compiled-sql.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
+← Previous&nbsp; [`23e-generate-schema-name.md`](23e-generate-schema-name.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
 
 ---
 
@@ -212,4 +212,4 @@ Both are read by `dbt docs serve` to render the UI.
 You've used all the basic dbt features. Two more files: a reference for errors,
 and what to do next.
 
-← Previous&nbsp; [`23d-compiled-sql.md`](23d-compiled-sql.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)
+← Previous&nbsp; [`23e-generate-schema-name.md`](23e-generate-schema-name.md) &nbsp;·&nbsp; Next →&nbsp; [`25-common-errors.md`](25-common-errors.md)

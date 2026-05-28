@@ -164,6 +164,54 @@ select * from {{ ref('stg_events') }}
 {% endif %}
 ```
 
+`on_schema_change`: `ignore` (default, silent drop), `append_new_columns` (usually
+right), `sync_all_columns` (aggressive), `fail` (safest for prod).
+
+`dbt run --full-refresh` to rebuild from scratch.
+
+## BigQuery-specific: partition + cluster
+
+```sql
+{{ config(
+    materialized='incremental',
+    unique_key='order_id',
+    partition_by={
+        'field': 'order_date',
+        'data_type': 'date',
+        'granularity': 'day'        -- 'hour'|'day'|'month'|'year'
+    },
+    cluster_by=['customer_id']      -- list or single string
+) }}
+```
+
+`partition_by` prunes scan cost by date range. `cluster_by` sorts within
+partitions for cheap per-key filters. Together: the standard high-volume fact
+table pattern.
+
+## Custom `generate_schema_name` (macros/generate_schema_name.sql)
+
+```sql
+{% macro generate_schema_name(custom_schema_name, node) -%}
+    {%- set default_schema = target.schema -%}
+    {%- if target.name == 'prod' -%}
+        {%- if custom_schema_name is none -%}
+            {{ default_schema }}
+        {%- else -%}
+            {{ custom_schema_name | trim }}     {# no prefix in prod #}
+        {%- endif -%}
+    {%- else -%}
+        {%- if custom_schema_name is none -%}
+            {{ default_schema }}
+        {%- else -%}
+            {{ default_schema }}_{{ custom_schema_name | trim }}
+        {%- endif -%}
+    {%- endif -%}
+{%- endmacro %}
+```
+
+Default dbt behavior: `{{ default_schema }}_{{ custom_schema_name }}`. Override
+because you usually want clean names in prod and prefixed names in dev/ci.
+
 ## Common gotchas
 
 - **`accepted_values: { values: [...] }` is deprecated** in dbt 1.10+. Use:

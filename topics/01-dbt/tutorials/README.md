@@ -3,7 +3,7 @@
 A self-contained hands-on dbt course, broken into bite-sized files. **One concept
 per file.** Read them in order; each one assumes you've read the ones before it.
 
-Total time end-to-end: **~4–5 hours** if you actually type along.
+Total time end-to-end: **~5–6 hours** if you actually type along.
 
 Total time per file: **5–15 minutes**. So you can do a few, take a break, come back.
 
@@ -58,11 +58,13 @@ Total time per file: **5–15 minutes**. So you can do a few, take a break, come
 
 | # | File | What you learn | Time |
 |---|------|---------------|------|
-| 22 | [`22-materializations.md`](22-materializations.md) | view vs table vs incremental vs ephemeral. When to use each. | 15 min |
+| 22 | [`22-materializations.md`](22-materializations.md) | view vs table vs incremental vs ephemeral. Plus BigQuery's partition_by/cluster_by. | 20 min |
+| 22b | [`22b-incremental-built.md`](22b-incremental-built.md) | Actually build an incremental — watch MERGE, hit `on_schema_change`, use `--full-refresh`. | 20 min |
 | 23 | [`23-configuring-mat.md`](23-configuring-mat.md) | How to set materialization per-model and per-folder. | 10 min |
 | 23b | [`23b-packages.md`](23b-packages.md) | `packages.yml`, `dbt deps`, using `dbt_utils`. Plus a peek at macros. | 15 min |
 | 23c | [`23c-multi-target.md`](23c-multi-target.md) | Add a `prod` target; switch with `--target`; env-aware `target.*` Jinja. | 10 min |
 | 23d | [`23d-compiled-sql.md`](23d-compiled-sql.md) | `target/compiled/` — read it, debug with it. The dbt debugging superpower. | 10 min |
+| 23e | [`23e-generate-schema-name.md`](23e-generate-schema-name.md) | Override `generate_schema_name` — the macro every real project rewrites. | 15 min |
 | 24 | [`24-dbt-docs.md`](24-dbt-docs.md) | Generate documentation and serve it as a website. | 10 min |
 | 25 | [`25-common-errors.md`](25-common-errors.md) | The errors you WILL hit, and what they actually mean. | reference |
 | 26 | [`26-whats-next.md`](26-whats-next.md) | Where to go from here. Including the spotify-pipeline anchor. | 5 min |
@@ -76,8 +78,16 @@ Each file has a "← Previous · Next →" line at the top and bottom. Just keep
 
 ## Status
 
-✅ **Complete.** All 32 files written (27 main + 5 deep-dive `*b/c/d`). Total ~35k words; ~4-5 hours to follow.
+✅ **Complete.** All 34 files written (27 main + 7 deep-dive `*b/c/d/e`). Total ~42k words; ~5-6 hours to follow.
 
-The deep-dive files (`13b`, `18b`, `23b`, `23c`, `23d`) close gaps that the
-original 27 had: sources (not just seeds), custom tests, packages, multi-target,
-and reading compiled SQL for debugging.
+The deep-dive files close gaps that the original 27 had:
+- `13b-sources.md` — declaring sources (not just using seeds)
+- `18b-custom-tests.md` — singular custom tests when built-ins aren't enough
+- `22b-incremental-built.md` — actually building an incremental model
+- `23b-packages.md` — `packages.yml`, `dbt deps`, `dbt_utils`, writing macros
+- `23c-multi-target.md` — dev/prod targets, `target.*` Jinja
+- `23d-compiled-sql.md` — debugging via `target/compiled/`
+- `23e-generate-schema-name.md` — the macro every real project overrides
+
+Plus BigQuery-specific configs (`partition_by`, `cluster_by`) appended to
+file 22.

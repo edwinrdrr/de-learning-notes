@@ -1,6 +1,6 @@
 # 23 — Configuring materializations (where to set them)
 
-← Previous&nbsp; [`22-materializations.md`](22-materializations.md) &nbsp;·&nbsp; Next →&nbsp; [`23b-packages.md`](23b-packages.md)
+← Previous&nbsp; [`22b-incremental-built.md`](22b-incremental-built.md) &nbsp;·&nbsp; Next →&nbsp; [`23b-packages.md`](23b-packages.md)
 
 ---
 
@@ -204,4 +204,4 @@ one place. Use `{{ config(...) }}` only for genuine exceptions.
 
 Materializations sorted. Last bit: see your project as a website.
 
-← Previous&nbsp; [`22-materializations.md`](22-materializations.md) &nbsp;·&nbsp; Next →&nbsp; [`23b-packages.md`](23b-packages.md)
+← Previous&nbsp; [`22b-incremental-built.md`](22b-incremental-built.md) &nbsp;·&nbsp; Next →&nbsp; [`23b-packages.md`](23b-packages.md)

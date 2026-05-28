@@ -1,6 +1,6 @@
 # 23d — Reading compiled SQL (the debugging superpower)
 
-← Previous&nbsp; [`23c-multi-target.md`](23c-multi-target.md) &nbsp;·&nbsp; Next →&nbsp; [`24-dbt-docs.md`](24-dbt-docs.md)
+← Previous&nbsp; [`23c-multi-target.md`](23c-multi-target.md) &nbsp;·&nbsp; Next →&nbsp; [`23e-generate-schema-name.md`](23e-generate-schema-name.md)
 
 ---
 
@@ -277,7 +277,7 @@ last-resort or a one-off.
 
 ---
 
-✅ **Part D checkpoint** — you can debug like a pro. Time for the last piece:
-documentation.
+✅ **Part D checkpoint** — you can debug like a pro. Next: one last
+configuration pattern that confuses every beginner, then documentation.
 
-← Previous&nbsp; [`23c-multi-target.md`](23c-multi-target.md) &nbsp;·&nbsp; Next →&nbsp; [`24-dbt-docs.md`](24-dbt-docs.md)
+← Previous&nbsp; [`23c-multi-target.md`](23c-multi-target.md) &nbsp;·&nbsp; Next →&nbsp; [`23e-generate-schema-name.md`](23e-generate-schema-name.md)
